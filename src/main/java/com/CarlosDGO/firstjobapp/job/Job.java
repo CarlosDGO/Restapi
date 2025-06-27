@@ -1,20 +1,31 @@
 package com.CarlosDGO.firstjobapp.job;
 
+import jakarta.persistence.*;
+
+@Entity
+//@Table(name="job_table")
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
-    private String Location;
+    private String location;
 
+    //default Construct
+    public Job(){
+
+    }
+    //Constructor
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
-        Location = location;
+        this.location = location;
     }
 
     public Long getId() {
@@ -58,10 +69,10 @@ public class Job {
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        location = location;
     }
 }
